@@ -1,0 +1,21 @@
+<div class='container mt-5' >
+    <div class="d-flex justify-content-between align-items-center mb-4">
+      <h2><%= @restaurant.name %></h2>
+        <%= link_to edit_restaurant_path(@restaurant.id), class: 'btn btn-light btn-sm border' do %>
+        <i class="fa fa-pencil"></i> Edit this restaurant
+        <% end %>
+    </div>
+    <ul style="list-style-type: none">
+      <li><strong>Address: </strong><%= @restaurant.address %></li>
+      <li><strong>Phone_number: </strong><%= @restaurant.phone_number %></li>
+      <li><strong>Category: </strong><%= @restaurant.category %></li>
+    </ul>
+
+  <hr>
+<%= link_to restaurants_path do %>
+    <i class="fa-solid fa-arrow-rotate-left"></i> Back to list ||
+  <% end %>
+ <%= link_to restaurant_path, method: :delete, data: {confirm: "Estas seguro?"} do %>
+    <i class="fa-regular fa-trash-can"></i>
+    <% end %>
+</div>
