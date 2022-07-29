@@ -12,6 +12,24 @@
     </ul>
 
   <hr>
+  <div>
+    <h3>Comentarios</h3>
+    <% @restaurant.reviews.each do |review| %>
+      <ul>
+        <li> <%= review.content %> <%= link_to "(Borrar review)", review_path(review),
+                                        method: :delete,
+                                        data: { confirm: "Are you sure?" } %></li>
+
+      </ul>
+       <% end %>
+  </div>
+  <br>
+  <div>
+    <%= link_to new_restaurant_review_path(@restaurant) do %>
+    <i class='btn btn-primary'>Deja un comentario</i>
+    <% end %>
+  </div>
+
 <%= link_to restaurants_path do %>
     <i class="fa-solid fa-arrow-rotate-left"></i> Back to list ||
   <% end %>
